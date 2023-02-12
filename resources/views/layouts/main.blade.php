@@ -24,7 +24,7 @@
             <div class="collapse navbar-collapse" id="burgerMenu">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('index') }}" onclick="showChoice()">Выбрать таблицу
+                        <a class="nav-link" href="{{ route('index') }}" >Выбрать таблицу
                             <span class="visually-hidden">(current)</span>
                         </a>
                     </li>

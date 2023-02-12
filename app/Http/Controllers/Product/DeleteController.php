@@ -11,8 +11,7 @@ class DeleteController extends BaseController
 {
     public function __invoke(Product $product)
     {
-        dump('delete');
-        dd($product);
-        return view('storage.index', compact('storages'));
+        $category = $product->category;
+        return view('product.delete', compact('product','category'));
     }
 }

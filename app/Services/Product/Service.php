@@ -19,5 +19,6 @@ class Service
 
     public function destroy($product)
     {
+        $product->delete();
     }
 }
