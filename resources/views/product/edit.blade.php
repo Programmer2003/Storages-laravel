@@ -1,8 +1,9 @@
 @extends('layouts.main')
 @section('content')
     <div class="container">
-        <form method="patch" action="{{ route('product.store') }}" class="needs-validation" id="editForm" novalidate>
+        <form action="{{ route('product.update', $product->id) }}" class="needs-validation" id="editForm" novalidate>
             @csrf
+            @method('patch')
             <div class="border p-3 mt-4">
                 <div class="row pb-2">
                     <h2 class="text-primary">Редактирование товара</h2>
@@ -71,11 +72,11 @@
                     dataType: "json",
                     success: function(res) {
                         console.log(res);
-                        //toastr.success('Запись успешно обновлена');
+                        toastr.success('Запись успешно обновлена');
                     },
                     error: function(data) {
                         console.log('error during execution');
-                        //toastr.error('Ошибка во время выполнения');
+                        toastr.error('Ошибка во время выполнения');
                     }
                 });
 

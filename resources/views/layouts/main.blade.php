@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('css/css.css') }}">
     <link rel="stylesheet" href="{{ asset('css/theme.css') }}">
+    <link rel="stylesheet" href="{{ asset('lib/toastr/dist/css/toastr.min.css') }}">
     <title>Document</title>
 </head>
 
@@ -32,13 +33,13 @@
         </div>
     </nav>
 
-    
+
     @yield('content')
 
-    <script src="{{ asset('lib/jquery/dist/jquery.js') }}" ></script>
-    <script src="{{ asset('lib/jquery/dist/jquery-ui.js') }}" ></script>
+    <script src="{{ asset('lib/jquery/dist/jquery.js') }}"></script>
+    <script src="{{ asset('lib/jquery/dist/jquery-ui.js') }}"></script>
     <script src="{{ asset('js/app.js') }}"></script>
-
+    <script src="{{ asset('lib/toastr/dist/js/toastr.min.js') }}"></script>
     @yield('scripts')
 
 </body>

@@ -68,7 +68,7 @@
                     data: $(this).serialize(),
                     dataType: "json",
                     success: function(res) {
-                        //toastr.success('Запись добавлена');
+                        toastr.success('Запись добавлена');
                     },
                     error: function(data) {
                         console.log('error during execution');
