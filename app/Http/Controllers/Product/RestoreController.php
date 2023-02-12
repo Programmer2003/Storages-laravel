@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Product;
 use App\Http\Requests\Product\StoreRequest;
 use App\Http\Resources\Product\Resource;
 
-class StoreController extends BaseController
+class RestoreController extends BaseController
 {
     public function __invoke(StoreRequest $request)
     {

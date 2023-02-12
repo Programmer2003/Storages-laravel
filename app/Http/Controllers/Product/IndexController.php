@@ -2,11 +2,7 @@
 
 namespace App\Http\Controllers\Product;
 
-use App\Http\Controllers\Controller;
-use App\Models\Category;
-use App\Models\Product;
 use App\Models\Storage;
-use Illuminate\Http\Request;
 
 class IndexController extends BaseController
 {

@@ -22,7 +22,7 @@
                     <label for="name">Категория</label>
                     <input value="{{ $category->name }}" type="text" id="category" class="form-control" disabled />
                 </div>
-                <button id="button" data-deleted="0" type="submit" class="btn btn-danger" style="width:150px">
+                <button id="button"  type="submit" class="btn btn-danger" style="width:150px">
                     Удалить
                 </button>
                 <a href="{{ url()->previous() }}" class="btn btn-secondary" style="width:150px">
@@ -54,10 +54,7 @@
                         data: $(this).serialize(),
                         dataType: "json",
                         success: function(res) {
-                            console.log(res['code']);
                             toastr.success('Запись удалена');
-                            $('#button').data("deleted", 1);
-                            $('#button').text("Восстановить");
                         },
                         error: function(data) {
                             console.log('error during execution');
@@ -71,15 +68,9 @@
                         data: {},
                         dataType: "json",
                         success: function(res) {
-                            console.log(res['code']);
                             toastr.info('Запись восстановлена');
-                            history.pushState("delete", "delete", `delete.php?id=${res['id']}`)
-                            $('#recordId').val(res['id']);
-                            $('#button').data("deleted", 0);
-                            $('#button').text("Удалить");
                         },
                         error: function(data) {
-                            console.log(data);
                             console.log('error during execution');
                             toastr.error('Ошибка во время выполнения');
                         }

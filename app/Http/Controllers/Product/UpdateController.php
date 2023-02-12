@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers\Product;
 
-use App\Http\Controllers\Controller;
 use App\Http\Requests\Product\UpdateRequest;
 use App\Http\Resources\Product\Resource;
 use App\Models\Product;
-use Illuminate\Http\Request;
 
 class UpdateController extends BaseController
 {

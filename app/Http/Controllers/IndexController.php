@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Storage;
-use Illuminate\Http\Request;
 
 class IndexController extends Controller
 {
