@@ -42,22 +42,27 @@ class DatabaseSeeder extends Seeder
             [
                 'storage_id' => '1',
                 'name' => 'Молочные',
+                'retail' => 10,
             ],
             [
                 'storage_id' => '1',
                 'name' => 'Мясные',
+                'retail' => 2,
             ],
             [
                 'storage_id' => '1',
                 'name' => 'Рыбные',
+                'retail' => 3,
             ],
             [
                 'storage_id' => '1',
                 'name' => 'Кондитерские изделия',
+                'retail' => 5,
             ],
             [
                 'storage_id' => '1',
                 'name' => 'Хлебобулочные',
+                'retail' => 10,
             ],
             [
                 'storage_id' => '2',

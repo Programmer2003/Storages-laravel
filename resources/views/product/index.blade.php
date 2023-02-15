@@ -34,7 +34,7 @@
                     @foreach ($products as $product)
                         <tr>
                             <td> {{ $product->name }} </th>
-                            <td> {{ $product->price }} </td>
+                            <td> {{ $product->getRetailPrice() }} </td>
                             <td> {{ $product->category->name }} </td>
                             <td>
                                 <div class='w-75 btn-group' role='group'>
