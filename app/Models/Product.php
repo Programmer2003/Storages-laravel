@@ -24,10 +24,10 @@ class Product extends Model
         $retail = $category->retail;
         if ($category->storage_id == 1) {
             $days = date_diff(now(), $this->created_at)->d;
-            $retail += 5 * $days;
+            $retail -= 5 * $days;
         }
 
-        $retail = min($retail, 30);
-        return round($this->price * (100 - $retail) / 100, 2);
+        $retail = max($retail, 0);
+        return round($this->price * (100 + $retail) / 100, 2);
     }
 }
