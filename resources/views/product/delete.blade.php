@@ -22,7 +22,7 @@
                     <label for="name">Категория</label>
                     <input value="{{ $category->name }}" type="text" id="category" class="form-control" disabled />
                 </div>
-                <button id="button"  type="submit" class="btn btn-danger" style="width:150px">
+                <button data-deleted="0" id="button"  type="submit" class="btn btn-danger" style="width:150px">
                     Удалить
                 </button>
                 <a href="{{ url()->previous() }}" class="btn btn-secondary" style="width:150px">
