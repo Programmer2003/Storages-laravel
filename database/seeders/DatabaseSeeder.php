@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Category;
+use App\Models\Closure;
 use App\Models\Product;
 use App\Models\Storage;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -41,53 +42,67 @@ class DatabaseSeeder extends Seeder
             [
                 [
                     'storage_id' => '1',
-                    'name' => 'Молочные',
-                    'retail' => 30,
+                    'name' => 'Молочные продукты',
                 ],
                 [
                     'storage_id' => '1',
-                    'name' => 'Мясные',
-                    'retail' => 40,
+                    'name' => 'Молоко',
                 ],
                 [
                     'storage_id' => '1',
-                    'name' => 'Рыбные',
-                    'retail' => 25,
+                    'name' => 'Коровье молоко',
                 ],
                 [
                     'storage_id' => '1',
-                    'name' => 'Кондитерские изделия',
-                    'retail' => 15,
+                    'name' => 'Сгущенное, сухое молоко',
                 ],
                 [
                     'storage_id' => '1',
-                    'name' => 'Хлебобулочные',
-                    'retail' => 15,
+                    'name' => 'Кефир, кисломолчные изделия',
                 ],
                 [
-                    'storage_id' => '2',
-                    'name' => 'Электрика',
-                    'retail' => 15,
+                    'storage_id' => '1',
+                    'name' => 'Кефир, бифидопродукты',
                 ],
                 [
-                    'storage_id' => '2',
-                    'name' => 'Стройматериал',
-                    'retail' => 30,
+                    'storage_id' => '1',
+                    'name' => 'Закваски',
                 ],
                 [
-                    'storage_id' => '2',
-                    'name' => 'Автотовары',
-                    'retail' => 50,
+                    'storage_id' => '1',
+                    'name' => 'Мясные продукты',
+                ],
+                [   
+                    'storage_id' => '1',
+                    'name' => 'Свининна',
+                ],
+                [   
+                    'storage_id' => '1',
+                    'name' => 'Разделка охлажденная из свинины',
+                ],
+                [   
+                    'storage_id' => '1',
+                    'name' => 'Копчености из свинины',
+                ],
+                [   
+                    'storage_id' => '1',
+                    'name' => 'Полуфабрикаты',
                 ],
                 [
-                    'storage_id' => '2',
-                    'name' => 'Бытовая техника',
-                    'retail' => 35,
+                    'storage_id' => '1',
+                    'name' => 'Колбаски, купаты',
                 ],
                 [
-                    'storage_id' => '2',
-                    'name' => 'Сантехника',
-                    'retail' => 25,
+                    'storage_id' => '1',
+                    'name' => 'Фарши',
+                ],
+                [
+                    'storage_id' => '1',
+                    'name' => 'Шашлыки',
+                ],
+                [
+                    'storage_id' => '1',
+                    'name' => 'Котлетки, биточки и прочие п/ф',
                 ],
 
             ];
@@ -97,77 +112,120 @@ class DatabaseSeeder extends Seeder
         }
 
 
+        $closures = [
+            [
+                'ancestor' => '1',
+                'descendant' => '2',
+            ],
+            [
+                'ancestor' => '2',
+                'descendant' => '3',
+            ],
+            [
+                'ancestor' => '2',
+                'descendant' => '4',
+            ],
+            [
+                'ancestor' => '1',
+                'descendant' => '5',
+            ],
+            [
+                'ancestor' => '5',
+                'descendant' => '6',
+            ],
+            [
+                'ancestor' => '5',
+                'descendant' => '7',
+            ],
+            [
+                'ancestor' => '8',
+                'descendant' => '9',
+            ],
+            [
+                'ancestor' => '9',
+                'descendant' => '10',
+            ],
+            [
+                'ancestor' => '9',
+                'descendant' => '11',
+            ],
+            [
+                'ancestor' => '8',
+                'descendant' => '12',
+            ],
+            [
+                'ancestor' => '12',
+                'descendant' => '13',
+            ],
+            [
+                'ancestor' => '12',
+                'descendant' => '14',
+            ],
+            [
+                'ancestor' => '12',
+                'descendant' => '15',
+            ],
+            [
+                'ancestor' => '12',
+                'descendant' => '16',
+            ],
+        ];
+
+        foreach ($closures as $closure) {
+            Closure::create($closure);
+        }
+
         $products =
             [
                 [
-                    'name' => 'Сливки питьевые пастеризованные',
-                    'price' => '2.45',
-                    'category_id' => '1'
-                ],
-                [
-                    'name' => 'Говяжьи уши',
-                    'price' => '5.99',
-                    'category_id' => '2'
-                ],
-                [
-                    'name' => 'Пельмени',
-                    'price' => '3.12',
-                    'category_id' => '2'
-                ],
-                [
-                    'name' => 'Икра лососевая',
-                    'price' => '24.99',
+                    'name' => 'Молоко стерилизованное 3.2%',
+                    'price' => '2.51',
                     'category_id' => '3'
                 ],
                 [
-                    'name' => 'Хлеб тостовый',
-                    'price' => '1.89',
-                    'category_id' => '5'
+                    'name' => 'Молоко стерилизованное 2.8%',
+                    'price' => '2.43',
+                    'category_id' => '3'
                 ],
                 [
-                    'name' => 'Хлеб "Водар"',
-                    'price' => '1.09',
-                    'category_id' => '5'
-                ],
-                [
-                    'name' => 'Кефир',
-                    'price' => '0.70',
-                    'category_id' => '1'
-                ],
-                [
-                    'name' => 'Светильник светодиодный',
-                    'price' => '29.70',
-                    'category_id' => '6'
-                ],
-                [
-                    'name' => 'Датчик движения',
-                    'price' => '45.49',
-                    'category_id' => '6'
-                ],
-                [
-                    'name' => 'Доска обрезная',
-                    'price' => '6.05',
+                    'name' => 'Закваска «Vita» сухая, для йогурта с бифидобактериями',
+                    'price' => '3.65',
                     'category_id' => '7'
                 ],
                 [
-                    'name' => 'Масло моторное',
-                    'price' => '153.20',
-                    'category_id' => '8'
+                    'name' => 'Купаты из мяса птицы «Дачные» замороженные',
+                    'price' => '24.16',
+                    'category_id' => '13'
                 ],
                 [
-                    'name' => 'Духовой шкаф',
-                    'price' => '1546.01',
-                    'category_id' => '9'
+                    'name' => 'Колбаски сырые «Домашние» охлажденные',
+                    'price' => '16.70',
+                    'category_id' => '13'
                 ],
                 [
-                    'name' => 'Умывальник Керамин',
-                    'price' => '85.28',
-                    'category_id' => '10'
+                    'name' => 'Набор полуфабрикатов «Ассорти для барбекю»',
+                    'price' => '14.06',
+                    'category_id' => '13'
                 ],
                 [
-                    'name' => 'Вытяжка',
-                    'price' => '249.00',
-                    'category_id' => '9'
+                    'name' => 'Колбаски «Полесские» охлажденные',
+                    'price' => '13.88',
+                    'category_id' => '13'
+                ],
+                [
+                    'name' => 'Шашлык «Из филе птицы» охлажденный',
+                    'price' => '11.61',
+                    'category_id' => '15'
+                ],
+                [
+                    'name' => 'Шашлык «Из птицы в майонезе» трумф',
+                    'price' => '7.84',
+                    'category_id' => '15'
+                ],
+                [
+                    'name' => 'Фарш свиной «Новый» охлажденный',
+                    'price' => '11.20',
+                    'category_id' => '14'
                 ],
             ];
 
