@@ -104,7 +104,26 @@ class DatabaseSeeder extends Seeder
                     'storage_id' => '1',
                     'name' => 'Котлетки, биточки и прочие п/ф',
                 ],
-
+                [
+                    'storage_id' => '2',
+                    'name' => 'Электроника и комплектующие для авто',
+                ],
+                [
+                    'storage_id' => '2',
+                    'name' => 'Автоэлектроника',
+                ],
+                [
+                    'storage_id' => '2',
+                    'name' => 'Видеорегистраторы',
+                ],
+                [
+                    'storage_id' => '2',
+                    'name' => 'Навигаторы',
+                ],
+                [
+                    'storage_id' => '2',
+                    'name' => 'Алкотестеры',
+                ],
             ];
 
         foreach ($categories as $category) {
@@ -168,6 +187,22 @@ class DatabaseSeeder extends Seeder
             [
                 'ancestor' => '12',
                 'descendant' => '16',
+            ],
+            [
+                'ancestor' => '17',
+                'descendant' => '18',
+            ],
+            [
+                'ancestor' => '18',
+                'descendant' => '19',
+            ],
+            [
+                'ancestor' => '18',
+                'descendant' => '20',
+            ],
+            [
+                'ancestor' => '18',
+                'descendant' => '21',
             ],
         ];
 

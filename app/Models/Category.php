@@ -35,6 +35,11 @@ class Category extends Model
         return $this->products->count();
     }
 
+    public function descendantsCount()
+    {
+        return $this->descendants()->count();
+    }
+
     public function descendants()
     {
         $arr = DB::table('categories')->join('closures', 'closures.descendant', '=', 'categories.id')->where('closures.ancestor', '=', $this->id)->pluck('closures.descendant')->toArray();
