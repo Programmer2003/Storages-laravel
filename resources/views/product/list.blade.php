@@ -19,14 +19,12 @@
     <script>
         $(function() {
             for (let item of $('.get-product')) {
-                console.log(item);
                 $(item).on('click', getProduct);
             }
         })
 
         function getProduct() {
             let id = $(this).data('id');
-            console.log(id);
             $.ajaxSetup({
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')

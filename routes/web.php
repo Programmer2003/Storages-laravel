@@ -16,7 +16,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'IndexController')->name('index');
 
+Route::group(['namespace' => 'Category'], function () {
+    Route::get('/category', 'ProductsController')->name('category.products');
+});
+
 Route::group(['namespace' => 'Product'], function () {
+
     Route::get('/{storage}/products/', 'IndexController')->name('product.index');
     Route::get('/{storage}/products/create', 'CreateController')->name('product.create');
     Route::post('/products', 'StoreController')->name('product.store');
@@ -25,4 +30,6 @@ Route::group(['namespace' => 'Product'], function () {
     Route::patch('/products/{product}', 'UpdateController')->name('product.update');
     Route::get('/products/{product}/delete', 'DeleteController')->name('product.delete');
     Route::delete('/products/{product}', 'DestroyController')->name('product.destroy');
+
+    Route::post('/array', 'ArrayController')->name('product.array');
 });
