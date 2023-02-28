@@ -8,7 +8,7 @@ class CreateController extends BaseController
 {
     public function __invoke(Storage $storage)
     {
-        $categories = $storage->categories;
+        $categories = $storage->lastCategories;
         return view('product.create', compact('categories'));
     }
 }

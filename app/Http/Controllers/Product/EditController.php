@@ -9,7 +9,7 @@ class EditController extends BaseController
 {
     public function __invoke(Storage $storage, Product $product)
     {
-        $categories = $storage->categories;
+        $categories = $storage->lastCategories;
         return view('product.edit', compact('categories', 'product'));
     }
 }

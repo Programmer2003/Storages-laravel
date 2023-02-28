@@ -9,10 +9,11 @@ class RestoreController extends BaseController
 {
     public function __invoke(StoreRequest $request)
     {
-        $data = $request->validated();
+        // $data = $request->validated();
         
-        $product = $this->service->store($data);
+        // $product = $this->service->store($data);
 
-        return new Resource($product);
+        // return new Resource($product);
+        return;
     }
 }

@@ -11,15 +11,11 @@
         </div>
     </div>
     <div class="mb-3">
-        <label for="price">Цена</label>
-        <input value="{{ $product->price }}" type="number" min="0.1" step="any" id="price" name="price"
-            class="form-control" required />
-        <div class="invalid-feedback">
-            Цена должна быть от 10 копеек.
-        </div>
-    </div>
-    <div class="mb-3">
         <label for="name">Категория</label>
         <input value="{{ $product->category->name }}" type="text" id="category" class="form-control" disabled />
     </div>
+    <a class="btn btn-primary" style="width:150px"
+        href="{{ route('product.edit', [$product->storage->id, $product->id]) }}">
+        Редактировать
+    </a>
 </form>

@@ -25,7 +25,7 @@ class UpdateRequest extends FormRequest
     {
         return [
             'name' => 'string',
-            'price' => '',
+            'expiration' => '',
             'category_id' => 'integer',
         ];
     }

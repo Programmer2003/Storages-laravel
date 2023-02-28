@@ -13,11 +13,19 @@ class Storage extends Model
 
     protected $guarded = [];
 
-    public function categories(){
+    public function categories()
+    {
         return $this->hasMany(Category::class);
     }
 
-    public function products(){
-        return $this->hasManyThrough(Product::class,Category::class);
+    public function lastCategories()
+    {
+        $arr = Closure::get()->unique('ancestor')->pluck('ancestor')->toArray();
+        return $this->hasMany(Category::class)->whereNotIn('id', $arr);
+    }
+
+    public function products()
+    {
+        return $this->hasManyThrough(Product::class, Category::class);
     }
 }

@@ -22,7 +22,7 @@
                             Название
                         </th>
                         <th width='20%'>
-                            Цена
+                            Срок годности
                         </th>
                         <th width='25%'>
                             Группа
@@ -34,7 +34,7 @@
                     @foreach ($products as $product)
                         <tr>
                             <td> {{ $product->name }} </th>
-                            <td> {{ $product->getRetailPrice() }} </td>
+                            <td> {{ $product->expiration }} </th>
                             <td> {{ $product->category->name }} </td>
                             <td>
                                 <div class='w-75 btn-group' role='group'>

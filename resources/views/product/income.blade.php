@@ -3,12 +3,15 @@
     <div class="container">
         <div class="border p-3 mt-4">
             <div class="row pb-2">
-                <h2 class="text-primary">Приход товаров</h2>
+                <div class="d-flex justify-content-between">
+                    <h2 class="text-primary">Приход товаров. Номер ТТН: {{ $TTH }}</h2>
+                    <a href="{{ route('product.create', $storage) }}" class="btn text-warning">Добавить продукт</a>
+                </div>
                 <hr />
             </div>
             <div class="m-3 all-products">
                 <div class="array" id="array">
-                    @include('partials.arrival-item')
+                    @include('partials.income-item', ['categories' => $categories])
                 </div>
 
                 <button class="btn btn-success add-item" id="addItem"><i class="bi bi-plus-circle"></i></button>
@@ -55,11 +58,13 @@
 
             var name = element.find('#product-name');
             var count = element.find('#product-count');
+            var price = element.find('#product-price');
             var nameInput = element[0].elements['product_id'];
             var countInput = element[0].elements['count'];
+            var priceInput = element[0].elements['price'];
             var categorySelect = element[0].elements['category'];
 
-            console.log(categorySelect);
+
             $(categorySelect).on('change', function(e) {
                 $.ajaxSetup({
                     headers: {
@@ -93,15 +98,29 @@
                 $(count).text(this.value);
             })
 
+            $(priceInput).on('change', function(e) {
+                $(price).text(this.value);
+            })
+
             return element;
         }
 
-        function selectCategory(e) {
-            console.log(e)
-
-        }
-
         function submit() {
+            // var forms = document.querySelectorAll('.needs-validation')
+            // var pass = true;
+            // Array.prototype.slice.call(forms)
+            //     .forEach(function(form) {
+            //         console.log(form.checkValidity());
+
+            //         if (!form.checkValidity()) {
+            //             console.log(1);
+            //             pass = false;
+            //         }
+            //         form.classList.add('was-validated')
+            //     });
+            // console.log(pass);
+            // return;
+
             const array = [];
             for (let item of $('#array').children('.array-item')) {
                 const form = new FormData(item);
@@ -110,9 +129,11 @@
                 array.push(obj);
             }
 
-            console.log(JSON.stringify({
-                array: array
-            }));
+            const json = {
+                'array': array,
+                'TTH': {{ $TTH }}
+            }
+            console.log(json);
 
             $.ajaxSetup({
                 headers: {
@@ -122,12 +143,11 @@
 
             $.ajax({
                 type: 'POST',
-                url: '{{ route('product.array') }}',
-                data: JSON.stringify({
-                    array: array
-                }),
+                url: '{{ route('product.income_store') }}',
+                data: json,
                 success: function(res) {
-                    toastr.success('Запись добавлена');
+                    console.log(res);
+                    toastr.success('Приход оформлен, номер ТТН: {{ $TTH }}');
                 },
                 error: function(data) {
                     console.log('error during execution');
@@ -136,4 +156,5 @@
             });
         }
     </script>
+    <script src="{{ asset('js/form-validation.js') }}"></script>
 @endsection

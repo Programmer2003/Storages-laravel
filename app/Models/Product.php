@@ -18,16 +18,9 @@ class Product extends Model
         return $this->belongsTo(Category::class);
     }
 
-    public function getRetailPrice()
+    public function storage()
     {
-        $category = $this->category;
-        $retail = $category->retail;
-        if ($category->storage_id == 1) {
-            $days = date_diff(now(), $this->created_at)->d;
-            $retail -= 5 * $days;
-        }
-
-        $retail = max($retail, 0);
-        return round($this->price * (100 + $retail) / 100, 2);
+        $a = Category::find($this->category_id);
+        return $a->storage();
     }
 }

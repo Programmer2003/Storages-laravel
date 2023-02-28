@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\Product\ExpenseController;
+use App\Http\Controllers\Product\IncomeController;
+use App\Http\Controllers\Product\IndexController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,6 +24,7 @@ Route::group(['namespace' => 'Category'], function () {
 });
 
 Route::group(['namespace' => 'Product'], function () {
+    Route::post('/getProduct', [IncomeController::class, 'getProductPrice'])->name('product.getPrice');
 
     Route::get('/{storage}/products/', 'IndexController')->name('product.index');
     Route::get('/{storage}/products/create', 'CreateController')->name('product.create');
@@ -30,6 +34,10 @@ Route::group(['namespace' => 'Product'], function () {
     Route::patch('/products/{product}', 'UpdateController')->name('product.update');
     Route::get('/products/{product}/delete', 'DeleteController')->name('product.delete');
     Route::delete('/products/{product}', 'DestroyController')->name('product.destroy');
+    Route::get('/{storage}/income/', [IncomeController::class, 'index'])->name('product.income');
+    Route::get('/{storage}/expense/', [ExpenseController::class, 'index'])->name('product.expense');
+    Route::get('/{storage}/sales/', 'SalesController')->name('product.sales');
 
-    Route::post('/array', 'ArrayController')->name('product.array');
+    Route::post('/income', [IncomeController::class, 'store'])->name('product.income_store');
+    Route::post('/expense', [ExpenseController::class, 'store'])->name('product.expense_store');
 });

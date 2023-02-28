@@ -30,6 +30,12 @@ class Category extends Model
         return Category::whereIn('id', $arr)->get();
     }
 
+    public static function lastCategories($storage)
+    {
+        $arr = DB::table('products')->distinct('category_id')->pluck('category_id')->toArray();
+        return Category::whereIn('id', $arr)->where('storage_id', '=', $storage->id)->get();
+    }
+
     public function productsCount()
     {
         return $this->products->count();

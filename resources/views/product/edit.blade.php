@@ -18,11 +18,11 @@
                     </div>
                 </div>
                 <div class="mb-3">
-                    <label for="price">Цена</label>
-                    <input value="{{ $product->price }}" type="number" min="0.1" step="any" id="price"
-                        name="price" class="form-control" required />
+                    <label for="price">Срок годности (дней)</label>
+                    <input value="{{ $product->expiration }}" type="number" min="1" id="price" name="expiration"
+                        class="form-control" required />
                     <div class="invalid-feedback">
-                        Цена должна быть от 10 копеек.
+                        Срок годности от 1 дня
                     </div>
                 </div>
                 <div class="mb-3">
