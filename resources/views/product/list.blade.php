@@ -5,6 +5,7 @@
             <div class="d-flex justify-content-between">
                 <a href="{{ route('product.income', $storage) }}" class="btn btn-info">Оформить приход</a>
                 <a href="{{ route('product.sales', $storage) }}" class="btn btn-danger">Продажи</a>
+                <a href="{{ route('product.pdf', $storage) }}" class="btn btn-success">PDF</a>
                 <a href="{{ route('product.expense', $storage) }}" class="btn btn-warning">Оформить расход</a>
             </div>
             @foreach ($categories as $category)
